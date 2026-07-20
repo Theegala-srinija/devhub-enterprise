@@ -1,20 +1,24 @@
+import { Navigate, Route, Routes } from 'react-router-dom'
+import AppShell from './components/layout/AppShell'
+import DashboardPage from './pages/DashboardPage'
+import PlaceholderPage from './pages/PlaceholderPage'
+
 function App() {
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-100 grid place-items-center p-6">
-      <section className="w-full max-w-xl rounded-2xl border border-slate-800 bg-slate-900 p-10 shadow-2xl">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-400">
-          DevHub Enterprise
-        </p>
-
-        <h1 className="mt-4 text-4xl font-bold tracking-tight">
-          Your development workspace is ready.
-        </h1>
-
-        <p className="mt-4 text-slate-400">
-          React, TypeScript, Vite, and Tailwind CSS are configured successfully.
-        </p>
-      </section>
-    </main>
+    <Routes>
+      <Route element={<AppShell />}>
+        <Route index element={<Navigate to="/dashboard" replace />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/projects" element={<PlaceholderPage title="Projects" />} />
+        <Route path="/tasks" element={<PlaceholderPage title="Tasks" />} />
+        <Route path="/bugs" element={<PlaceholderPage title="Bug Tracking" />} />
+        <Route path="/teams" element={<PlaceholderPage title="Teams" />} />
+        <Route path="/calendar" element={<PlaceholderPage title="Calendar" />} />
+        <Route path="/analytics" element={<PlaceholderPage title="Analytics" />} />
+        <Route path="/notifications" element={<PlaceholderPage title="Notifications" />} />
+        <Route path="/settings" element={<PlaceholderPage title="Settings" />} />
+      </Route>
+    </Routes>
   )
 }
 
