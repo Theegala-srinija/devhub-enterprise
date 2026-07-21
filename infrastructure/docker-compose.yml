@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:18-alpine
+    container_name: devhub-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: devhub
+      POSTGRES_USER: devhub
+      POSTGRES_PASSWORD: devhub_local_password
+    ports:
+      - "5433:5432"
+    volumes:
+      - devhub_postgres_data:/var/lib/postgresql
+
+volumes:
+  devhub_postgres_data:

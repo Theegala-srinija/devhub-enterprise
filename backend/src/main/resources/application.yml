@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: devhub-api
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/devhub
+    username: devhub
+    password: devhub_local_password
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+info:
+  app:
+    name: DevHub Enterprise API
+    description: Collaborative software development workspace
